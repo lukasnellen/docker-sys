@@ -1,0 +1,23 @@
+#! /bin/bash
+#
+# Build rhel based system image for ape installations
+#
+# Arguments:
+#  $1: distribution code
+#    c: centos
+#    f: fedora
+#  $2: version tag
+
+docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+case $1 in
+    c) base=centos
+       yum=yum
+       ;;
+    f) base=fedora
+       yum=dnf
+       ;;
+esac
+
+docker pull ${base}:$2
+docker build -t lukasnellen/sysdev:$1-$2 --build-arg baseimage=${base}:$2 --build-arg yum=${yum} ${docker_dir}

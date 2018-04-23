@@ -1,0 +1,26 @@
+#! /bin/bash
+#
+# Build debian (based) system image for ape installations
+#
+# Arguments:
+#  $1: distribution code
+#    d: debian
+#    u: ubuntu
+#    m: mint
+#  $2: version tag
+
+docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+case $1 in
+d) mysqlclientdev=default-libmysqlclient-dev
+   base=debian
+   ;;
+u) mysqlclientdev=libmysqlclient-dev
+   base=ubuntu
+   ;;
+m) mysqlclientdev=libmysqlclient-dev
+   base=vcatechnology/linux-mint
+   ;;
+esac
+
+docker build -t lukasnellen/sysdev:$1-$2 --build-arg baseimage=${base}:$2 --build-arg mysqlclientdev=${mysqlclientdev} ${docker_dir}

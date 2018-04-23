@@ -1,0 +1,8 @@
+#! /bin/bash
+#
+# Build arch system image for ape installations
+#
+
+docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+docker build -t lukasnellen/sysdev:a-latest ${docker_dir}
