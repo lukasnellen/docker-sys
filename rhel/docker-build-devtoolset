@@ -1,0 +1,10 @@
+#! /bin/bash
+#
+# Arguments:
+#   $1: base image revision tag
+#   $2: toolset version, default to 7
+
+docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+toolset=${2:-7}
+
+docker build -f Dockerfile-scl -t lukasnellen/sysdev:c-$1t${toolset} --build-arg baseimage=lukasnellen/sysdev:c-$1 --build-arg toolset=${toolset} ${docker_dir}

@@ -1,0 +1,25 @@
+ARG baseimage=lukasnellen/sysdev:c-7
+FROM $baseimage
+
+LABEL maintainers="Lukas Nellen <lukas@nucleares.unam.mx>" \
+      name="Software install environment with devtoolset" 
+
+# set to version of devtoolset to install
+ARG toolset=7
+
+# software collection for centos images
+RUN yum install -y centos-release-scl\
+  && \ 
+    yum install -y devtoolset-$toolset \
+  && \
+# cleanup
+    yum clean all && rm -rf /var/cache/yum
+
+# the development toolset to use
+ENV RHDEVTOOLSET=devtoolset-$toolset
+
+# run command in the context of the development toolset
+COPY ./entrypoint-scl.sh /entrypoint-scl.sh
+ENTRYPOINT [ "/entrypoint-scl.sh" ]
+
+CMD [ "bash" ]
