@@ -13,7 +13,7 @@ docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 case $1 in
     c) base=centos
        if [ "$2" -eq "6" ]; then
-	   mysqldevel=mariadb-devel
+	   mysqldevel=mysql-devel
        else
 	   mysqldevel=mariadb-devel
        fi
