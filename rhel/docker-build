@@ -12,12 +12,22 @@ docker_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 case $1 in
     c) base=centos
+       if [ "$2" -eq "6" ]; then
+	   mysqldevel=mariadb-devel
+       else
+	   mysqldevel=mariadb-devel
+       fi
        yum=yum
        ;;
     f) base=fedora
+       mysqldevel=mariadb-devel
        yum=dnf
        ;;
 esac
 
 docker pull ${base}:$2
-docker build -t lukasnellen/sysdev:$1-$2 --build-arg baseimage=${base}:$2 --build-arg yum=${yum} ${docker_dir}
+docker build -t lukasnellen/sysdev:$1-$2 \
+       --build-arg baseimage=${base}:$2 \
+       --build-arg yum=${yum} \
+       --build-arg mysqldevel=${mysqldevel} \
+       ${docker_dir}

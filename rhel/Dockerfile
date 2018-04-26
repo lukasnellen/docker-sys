@@ -7,6 +7,9 @@ LABEL maintainers="Lukas Nellen <lukas@nucleares.unam.mx>" \
 # set yum to dnf for fedora images
 ARG yum=yum
 
+# set mysqldevel to mysql-devel for CentOS 6, OK for Centos7 and Fedora
+ARG mysqldevel=mariadb-devel
+
 RUN $yum upgrade -y \
   && \
     $yum install -y \ 
@@ -35,6 +38,8 @@ RUN $yum upgrade -y \
     libXft-devel \
     libXext-devel \
     zlib-devel \
+    $mysqldevel \
+    openssl \
   && \
 # cleanup
     $yum clean all && rm -rf /var/cache/yum
