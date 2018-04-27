@@ -20,7 +20,7 @@ case $1 in
        yum=yum
        ;;
     f) base=fedora
-       mysqldevel=mariadb-devel
+       mysqldevel=community-mysql-devel
        yum=dnf
        ;;
 esac

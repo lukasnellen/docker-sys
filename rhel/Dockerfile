@@ -7,7 +7,10 @@ LABEL maintainers="Lukas Nellen <lukas@nucleares.unam.mx>" \
 # set yum to dnf for fedora images
 ARG yum=yum
 
-# set mysqldevel to mysql-devel for CentOS 6, OK for Centos7 and Fedora
+# set mysqldevel to
+#    mysql-devel for CentOS 6,
+#    mariadb-devel for Centos7
+#    community-mysql-devel for Fedora 27, 28
 ARG mysqldevel=mariadb-devel
 
 RUN $yum upgrade -y \
