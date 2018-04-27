@@ -27,6 +27,7 @@ RUN apt-get update && \
     rsync \
     subversion \
     python-virtualenv \
+    openssl \
 #    which \ # debianutils
 # package headers
     libbz2-dev \
