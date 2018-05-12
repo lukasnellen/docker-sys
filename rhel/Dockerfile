@@ -43,6 +43,8 @@ RUN $yum upgrade -y \
     zlib-devel \
     $mysqldevel \
     openssl \
+# for running final software
+    wget \
   && \
 # cleanup
     $yum clean all && rm -rf /var/cache/yum

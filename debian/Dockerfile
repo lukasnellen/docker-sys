@@ -40,6 +40,8 @@ RUN apt-get update && \
     libxext-dev \
     python-dev \
     zlib1g-dev \
+# for running final software
+    wget \
   && \
 # cleanup
     apt-get clean && rm -rf /var/lib/apt/lists/*

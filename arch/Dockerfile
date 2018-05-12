@@ -30,7 +30,9 @@ RUN pacman --noconfirm --noprogressbar -Syu \
     libxft \
     libxext \
 #    python-dev \
-    zlib
+    zlib \
+# for running final software
+    wget
 
 #\
 #  && \
