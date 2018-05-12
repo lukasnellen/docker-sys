@@ -25,8 +25,8 @@ case $1 in
        ;;
 esac
 
-docker pull ${base}:$2
 docker build -t lukasnellen/sysdev:$1-$2 \
+       --pull \
        --build-arg baseimage=${base}:$2 \
        --build-arg yum=${yum} \
        --build-arg mysqldevel=${mysqldevel} \

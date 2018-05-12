@@ -23,4 +23,8 @@ m) mysqlclientdev=libmysqlclient-dev
    ;;
 esac
 
-docker build -t lukasnellen/sysdev:$1-$2 --build-arg baseimage=${base}:$2 --build-arg mysqlclientdev=${mysqlclientdev} ${docker_dir}
+docker build -t lukasnellen/sysdev:$1-$2 \
+       --pull \
+       --build-arg baseimage=${base}:$2 \
+       --build-arg mysqlclientdev=${mysqlclientdev} \
+       ${docker_dir}
