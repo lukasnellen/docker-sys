@@ -1,0 +1,10 @@
+#! /bin/sh
+
+./docker-build c 6
+./docker-build c 7
+
+./docker-build-devtoolset 6 7
+./docker-build-devtoolset 7 7
+
+./docker-build f 28
+./docker-build f 29

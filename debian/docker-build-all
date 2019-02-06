@@ -1,0 +1,11 @@
+#! /bin/sh
+
+./docker-build d 9
+./docker-build d testing
+./docker-build-tx
+
+./docker-build u 16.04
+./docker-build u 18.04
+./docker-build u 18.10
+
+#./docker-build m 18
