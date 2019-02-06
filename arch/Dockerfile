@@ -20,6 +20,7 @@ RUN pacman --noconfirm --noprogressbar -Syu \
     rsync \
     subversion \
     which \
+    file \
 # package headers
     bzip2 \
     libpng \

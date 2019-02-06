@@ -8,7 +8,6 @@ LABEL maintainers="Lukas Nellen <lukas@nucleares.unam.mx>" \
       name="Software install environment" 
 
 RUN apt-get update && \
-    apt-get upgrade --no-install-recommends --yes && \
     apt-get install --no-install-recommends --yes \ 
 # build tools and helpers
     binutils \
@@ -29,6 +28,7 @@ RUN apt-get update && \
     python-virtualenv \
     openssl \
 #    which \ # debianutils
+    file \
 # package headers
     libbz2-dev \
     libpng-dev \

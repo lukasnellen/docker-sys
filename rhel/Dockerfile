@@ -13,9 +13,7 @@ ARG yum=yum
 #    community-mysql-devel for Fedora 27, 28
 ARG mysqldevel=mariadb-devel
 
-RUN $yum upgrade -y \
-  && \
-    $yum install -y \ 
+RUN $yum install -y \ 
 # build tools and helper
     binutils \
     findutils \
@@ -34,6 +32,7 @@ RUN $yum upgrade -y \
     rsync \
     subversion \
     which \
+    file \
 # build dependencies
     bzip2-devel \
     libX11-devel \
